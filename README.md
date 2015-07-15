@@ -16,9 +16,9 @@ $ npm install promise-middleware
 ```js
 import wrapper from 'promise-middleware'
 import http from 'http'
-import corsMiddleware from 'cors'
+import cors from 'cors'
 
-const cors = corsMiddleware()
+const corsMiddleware = cors()
 
 // ES7 example.
 http.createServer(async (request, response) => {
@@ -27,7 +27,7 @@ http.createServer(async (request, response) => {
   // arguments `req`, `res`, `next`.
   const middleware = wrapper.bind(null, request, response)
 
-  await middleware(cors)
+  await middleware(corsMiddleware)
 
   response.end('Hello world!')
 })
