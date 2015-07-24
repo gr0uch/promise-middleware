@@ -1,4 +1,4 @@
-import { check, fail } from 'tapdance'
+import { pass, fail } from 'tapdance'
 import wrapper from '../lib'
 import http from 'http'
 import assert from 'assert'
@@ -23,16 +23,16 @@ server.listen(1337, () => {
   .then(response => {
     const { headers } = response
 
-    check('cors header is correct', () =>
-      assert.equal(headers.get('access-control-allow-origin'), '*'))
+    pass(() => assert.equal(headers.get('access-control-allow-origin'), '*'),
+      'cors header is correct')
 
     return response.text()
   })
 
-  .then(text => check('text is correct', () =>
-    assert.equal(text, 'Hello world!')))
+  .then(text => pass(() => assert.equal(text, 'Hello world!'),
+    'text is correct'))
 
-  .catch(error => fail(error.toString()))
+  .catch(error => fail(error))
 
   .then(() => server.close())
 })
