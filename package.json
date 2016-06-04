@@ -1,7 +1,7 @@
 {
   "name": "promise-middleware",
   "description": "Use callback-based middlewares as promises.",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "author": {
     "email": "0x8890@airmail.cc",
