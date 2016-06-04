@@ -25,7 +25,7 @@ http.createServer(async (request, response) => {
   // The signature of the wrapper function is typically `request`, `response`,
   // and lastly `middleware`, which is a function that typically accepts the
   // arguments `req`, `res`, `next`.
-  const middlware = fn => middlewareWrapper(request, response, fn)
+  const middleware = fn => middlewareWrapper(request, response, fn)
 
   await middleware(cors)
 
